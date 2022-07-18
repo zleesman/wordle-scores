@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import { GlobalStyles } from "twin.macro";
+import "tailwindcss/tailwind.css";
+import "../styles/globals.css";
+import { AppProvider } from "../components/AppContext";
+const App = ({ Component, pageProps }) => {
+  return (
+    <AppProvider>
+      <Component {...pageProps} />
+    </AppProvider>
+  );
+};
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-export default MyApp
+export default App;
