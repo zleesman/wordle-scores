@@ -8,17 +8,17 @@ const Container = styled.div`
 `;
 
 const Header = () => {
-  const { currUser, setCurrUser } = useContext(AppContext);
+  const { userData, setUserData } = useContext(AppContext);
 
   return (
     <Container>
       <p tw="font-italianno text-6xl text-primary">Wordle Scores</p>
 
       <button
-        onClick={currUser ? userSignOut : signInWithGoogle}
+        onClick={userData ? userSignOut : signInWithGoogle}
         tw="bg-primary text-black rounded-full px-12 py-4"
       >
-        {currUser ? "Log Out" : "Log In"}
+        {userData ? "Log Out" : "Log In"}
       </button>
     </Container>
   );

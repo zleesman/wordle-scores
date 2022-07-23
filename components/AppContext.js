@@ -1,23 +1,26 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/config";
+import { updateUser } from "../util/functions";
 
 const AppContext = createContext({});
 export const AppProvider = ({ children }) => {
-  const [currUser, setCurrUser] = useState(null);
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrUser(user);
-    } else {
-      setCurrUser(null);
-    }
-  });
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        updateUser(user).then((data) => setUserData(data));
+      } else {
+        setUserData(null);
+      }
+    });
+  }, []);
 
   return (
     <AppContext.Provider
       value={{
-        currUser,
-        setCurrUser,
+        userData,
+        setUserData,
       }}
     >
       {children}
