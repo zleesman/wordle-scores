@@ -12,9 +12,7 @@ const Form = styled.form`
 const Submit = styled.input`
   ${tw`p-4 mt-12 text-3xl rounded-full bg-primary border-2 border-primary cursor-pointer ease-in-out duration-500 hover:(bg-transparent)`}
 `;
-const handleSubmit = () => {
-  // await setDoc(doc(db))
-};
+const handleSubmit = () => {};
 const Input = () => {
   const { userData } = useContext(AppContext);
   const [textInput, setTextInput] = useState();

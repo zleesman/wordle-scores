@@ -1,20 +1,23 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+
 import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+const val = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 const firebaseConfig = {
-  apiKey: "AIzaSyDJsYeseCZHyVDBkQ2vNe_nz5r1cT_1gNM",
+  apiKey: val,
   authDomain: "wordle-scores-ba7ab.firebaseapp.com",
   projectId: "wordle-scores-ba7ab",
   storageBucket: "wordle-scores-ba7ab.appspot.com",
